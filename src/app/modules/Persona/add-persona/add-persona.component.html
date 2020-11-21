@@ -16,11 +16,12 @@
                 <input matInput [(ngModel)]="personaModel.apellidos" placeholder="Ingresar apellidos" name="apellidos">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             </mat-form-field>
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="fill">
                 <mat-label>Sexo</mat-label>
-                <input matInput [(ngModel)]="personaModel.sexo" placeholder="Ingresar Sexo" name="sexo">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
+                <mat-select [(ngModel)]="personaModel.sexo">
+                  <mat-option  *ngFor="let s of sexo" [value]="s.idsexo">{{s.nombre}}</mat-option>
+                </mat-select>
+              </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Numero de documento</mat-label>
                 <input matInput [(ngModel)]="personaModel.n_doc" placeholder="Ingresar documento" name="n_doc">
@@ -28,16 +29,22 @@
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Tipo Documento</mat-label>
-                <mat-select [(ngModel)]="personaModel.id_tipo_doc">
+                <mat-select [(ngModel)]="personaModel.tipo_doc_id">
                   <mat-option  *ngFor="let tip of tipodocumentos" [value]="tip.ID_TIPO_DOC">{{tip.NOMBRE}}</mat-option>
                 </mat-select>
               </mat-form-field>
+
+              <mat-form-field color="accent" appearance="fill">
+                <mat-label>alumno su vostra</mat-label>
+                <input matInput [(ngModel)]="personaModel.fecha_nac" [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button color="primary" (click)="create()">Registrar</button>
             <a mat-raised-button routerLink="/listpersona" color="warn">Cancelar</a>
         </mat-card-actions>
     </mat-card>
-
-    <!---->
 </div>

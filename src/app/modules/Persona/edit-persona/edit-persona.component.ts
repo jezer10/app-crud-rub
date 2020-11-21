@@ -34,18 +34,20 @@ export class EditPersonaComponent implements OnInit {
         this.personaService.getPersona(id).subscribe(
           (data)=>{
           this.personas=data['CURSOR_PERSONA'];
-          this.persona.id_persona=this.personas[0].ID_PERSONA; 
+          this.persona.persona_id=this.personas[0].PERSONA_ID; 
           this.persona.nombres=this.personas[0].NOMBRES;
           this.persona.apellidos=this.personas[0].APELLIDOS;
           this.persona.sexo=this.personas[0].SEXO;
           this.persona.n_doc=this.personas[0].N_DOC;
-          this.persona.id_tipo_doc=this.personas[0].ID_TIPO_DOC;
+          this.persona.tipo_doc_id=this.personas[0].TIPO_DOC_ID;
           this.persona.estado=this.personas[0].ESTADO;
+
         })
       }
     })
   }
   modificarPersona():void{
+    console.log(this.persona)
     this.personaService.updatePersona(this.persona).subscribe(
       response=>{
         Swal.fire({

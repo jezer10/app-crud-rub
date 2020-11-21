@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ListPersonaComponent implements OnInit {
   personas:Personauc[];
+  ds:string[]=['ID_PERSONA', 'NOMBRES', 'APELLIDOS', 'SEXO','N_DOC','ID_TIPO_DOC','EDITAR', 'ELIMINAR'];
   constructor(private personaService:PersonaService) { }
 
   ngOnInit(): void {

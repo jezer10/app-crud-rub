@@ -25,6 +25,6 @@ export class PersonaService {
     return this.http.get(`${this.urlPersona}/${id}`);
   }
   updatePersona(persona: Persona):Observable<number> {
-    return this.http.put<number>(`${this.urlPersona}/update/${persona.id_persona}`, persona,{headers:this.httpHeaders});
+    return this.http.put<number>(`${this.urlPersona}/update/${persona.persona_id}`, persona,{headers:this.httpHeaders});
   }
 }

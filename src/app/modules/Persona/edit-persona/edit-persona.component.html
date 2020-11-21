@@ -1,41 +1,49 @@
 <div class="center">
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Modificar</mat-card-title>
-          <mat-card-subtitle>Persona</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <mat-form-field appearance="outline">
-                <mat-label>Nombre</mat-label>
-                <input matInput [(ngModel)]="persona.nombres" placeholder="Ingresar nombres">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Apellidos</mat-label>
-                <input matInput [(ngModel)]="persona.apellidos" placeholder="Ingresar apellidos">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Sexo</mat-label>
-                <input matInput [(ngModel)]="persona.sexo" placeholder="Ingresar sexo">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Numero de documento</mat-label>
-                <input matInput [(ngModel)]="persona.n_doc" placeholder="Ingresar documento">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Tipo Documento</mat-label>
-                <mat-select [(ngModel)]="persona.id_tipo_doc">
-                  <mat-option  *ngFor="let tip of tipodocumentos" [value]="tip.ID_TIPO_DOC">{{tip.NOMBRE}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="modificarPersona()">Modificar</button>
-            <a mat-raised-button routerLink="/listpersona" color="warn">Cancelar</a>
-        </mat-card-actions>
-      </mat-card>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Modificar</mat-card-title>
+      <mat-card-subtitle>Persona</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="persona.nombres" placeholder="Ingresar nombres">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input matInput [(ngModel)]="persona.apellidos" placeholder="Ingresar apellidos">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Sexo</mat-label>
+        <input matInput [(ngModel)]="persona.sexo" placeholder="Ingresar sexo">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Numero de documento</mat-label>
+        <input matInput [(ngModel)]="persona.n_doc" placeholder="Ingresar documento">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo Documento</mat-label>
+        <mat-select [(ngModel)]="persona.tipo_doc_id">
+          <mat-option *ngFor="let tip of tipodocumentos" [value]="tip.TIPO_DOC_ID">{{tip.NOMBRE}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [(ngModel)]="persona.fecha_nac" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="modificarPersona()">Modificar</button>
+      <a mat-raised-button routerLink="/listpersona" color="warn">Cancelar</a>
+    </mat-card-actions>
+  </mat-card>
 </div>

@@ -2,7 +2,7 @@
   <table mat-table [dataSource]="personas" class="mat-elevation-z8">
     <ng-container matColumnDef="ID_PERSONA">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let persona"> {{persona.ID_PERSONA}} </td>
+      <td mat-cell *matCellDef="let persona"> {{persona.PERSONA_ID}} </td>
     </ng-container>
 
     <ng-container matColumnDef="NOMBRES">
@@ -26,13 +26,13 @@
 
     <ng-container matColumnDef="ID_TIPO_DOC">
       <th mat-header-cell *matHeaderCellDef>Tipo Documento</th>
-      <td mat-cell *matCellDef="let persona"> {{persona.ID_TIPO_DOC}} </td>
+      <td mat-cell *matCellDef="let persona"> {{persona.TIPO_DOC_ID}} </td>
     </ng-container>
 
     <ng-container matColumnDef="EDITAR">
       <th mat-header-cell *matHeaderCellDef>Editar</th>
       <td mat-cell *matCellDef="let persona">
-        <a mat-icon-button [routerLink]="['/editpersona', persona.ID_PERSONA]">
+        <a mat-icon-button [routerLink]="['/editpersona', persona.PERSONA_ID]">
           <mat-icon color="primary">edit</mat-icon>
         </a>
       </td>
@@ -40,12 +40,13 @@
     <ng-container matColumnDef="ELIMINAR">
       <th mat-header-cell *matHeaderCellDef>Eliminar</th>
       <td mat-cell *matCellDef="let persona">
-        <button (click)="delPersona(persona.ID_PERSONA)" mat-icon-button>
+        <button (click)="delPersona(persona.PERSONA_ID)" mat-icon-button>
           <mat-icon color="warn">delete</mat-icon>
         </button>
       </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="['ID_PERSONA', 'NOMBRES', 'APELLIDOS', 'SEXO','N_DOC','ID_TIPO_DOC','EDITAR', 'ELIMINAR']"></tr>
-    <tr mat-row *matRowDef="let fila; columns: ['ID_PERSONA', 'NOMBRES', 'APELLIDOS', 'SEXO','N_DOC','ID_TIPO_DOC','EDITAR', 'ELIMINAR'];"></tr>
+
+    <tr mat-header-row *matHeaderRowDef="ds"></tr>
+    <tr mat-row *matRowDef="let row; columns: ds;"></tr>
   </table>
 </nav>

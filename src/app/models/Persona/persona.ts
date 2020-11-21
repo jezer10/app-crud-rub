@@ -1,10 +1,16 @@
+import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
+
 export class Persona {
-	id_persona: number;
+	persona_id: number;
 	nombres: string;
 	apellidos: string;
-	sexo: string;
+	tipo_doc_id: number;
 	n_doc: string;
-	id_tipo_doc: number;
+	sexo: string;
+	fecha_nac: string;
+	correo: string;
+	telefono: string;
+	estado_civil_id: string;
 	estado: string;
 
 }
